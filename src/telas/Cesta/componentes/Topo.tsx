@@ -1,15 +1,23 @@
-import { Dimensions, Image, StyleSheet } from 'react-native';
+import {
+  Dimensions,
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+} from 'react-native';
 import Texto from '../../../componentes/Texto';
-
-const topo = require('../../../../assets/topo.png');
 
 const width = Dimensions.get('screen').width;
 
-function Topo() {
+type Props = {
+  titulo: string;
+  imagem: ImageSourcePropType;
+};
+
+function Topo({ titulo, imagem }: Props) {
   return (
     <>
-      <Image source={topo} style={estilos.topo} />
-      <Texto style={estilos.titulo}>Detalhes da cesta</Texto>
+      <Image source={imagem} style={estilos.topo} />
+      <Texto style={estilos.titulo}>{titulo}</Texto>
     </>
   );
 }

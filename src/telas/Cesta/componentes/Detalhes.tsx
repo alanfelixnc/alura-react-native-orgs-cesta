@@ -1,21 +1,24 @@
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, ImageSourcePropType, StyleSheet, View } from 'react-native';
 import Texto from '../../../componentes/Texto';
 
-const logo = require('../../../../assets/logo.png');
+type Props = {
+  nome: string;
+  logoFazenda: ImageSourcePropType;
+  nomeFazenda: string;
+  descricao: string;
+  preco: string;
+};
 
-function Detalhes() {
+function Detalhes({ nome, logoFazenda, nomeFazenda, descricao, preco }: Props) {
   return (
     <>
-      <Texto style={estilos.nome}>Cesta de verduras</Texto>
+      <Texto style={estilos.nome}>{nome}</Texto>
       <View style={estilos.fazenda}>
-        <Image style={estilos.imagemFazenda} source={logo} />
-        <Texto style={estilos.nomeFazenda}>Jenny Jack Farm</Texto>
+        <Image style={estilos.imagemFazenda} source={logoFazenda} />
+        <Texto style={estilos.nomeFazenda}>{nomeFazenda}</Texto>
       </View>
-      <Texto style={estilos.descricao}>
-        Uma cesta com produtos cuidadosamente selecionados da fazenda
-        diretamente para a sua cozinha
-      </Texto>
-      <Texto style={estilos.preco}>R$ 40,00</Texto>
+      <Texto style={estilos.descricao}>{descricao}</Texto>
+      <Texto style={estilos.preco}>{preco}</Texto>
     </>
   );
 }
